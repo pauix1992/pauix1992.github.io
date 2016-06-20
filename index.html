@@ -14,14 +14,195 @@
   <script>
 
   // initialize the map
+  // Adapted from nirnpowers.github.io
   var map = L.map('map');
-  L.tileLayer('img/map_{z}_{x}-{y}.jpg', {
- //   attribution: 'Map data &copy; <a href="http://openstreetmap.org">OpenStreetMap</a> contributors, <a href="http://creativecommons.org/licenses/by-sa/2.0/">CC-BY-SA</a>, Imagery © <a href="http://mapbox.com">Mapbox</a>',
-    maxZoom: 18,
- //   id: 'your.mapbox.project.id',
- //   accessToken: 'your.mapbox.public.access.token'
-}).addTo(map);
-  </script>
+  
+  
+        var map = L.map('map').setView([50.85, -8.04], 2);
+        L.tileLayer('img/map_{z}_{x}-{y}.jpg', {
+            minZoom: 1,
+            maxZoom: 5,
+            attribution: 'ITP map test',
+            tms: false,
+			noWrap: true,
+        }).addTo(map);
+		
+		
+		/*This function gives you Lat Long of what you click on */
+		var popup = L.popup();
+
+		map.on('click', onMapClick);
+		function onMapClick(e) {
+			popup
+				.setLatLng(e.latlng)
+				.setContent("You clicked the map at " + e.latlng.toString())
+				.openOn(map);
+		};
+		
+		/*Custom Icons*/
+/*
+		var npIcon = L.Icon.extend({
+			options: {
+				iconSize: [40, 40],
+				iconAnchor: [20, 20],
+				popupAnchor: [0, -20],
+			}
+		});
+		
+		var akaviri = L.icon({
+			iconUrl: 'icons/akaviri.png',
+			iconSize: [28, 52],
+			popupAnchor: [0, -26]
+		});
+
+		var alinor = new npIcon({iconUrl: 'icons/alinor2.png'})
+			hammerfell = new npIcon ({iconUrl: 'icons/hammerfell.png'})
+			imperial = new npIcon({iconUrl: 'icons/imperialcity.png'})
+			ind = new npIcon({iconUrl: 'icons/tribe.png'})
+			sorc = new npIcon({iconUrl: 'icons/sorcerers.png'})
+			orcs = new npIcon({iconUrl: 'icons/orcs.png'})
+			breton = new npIcon({iconUrl: 'icons/breton2.png'})
+			skyrim = new npIcon({iconUrl: 'icons/bear.png'})
+			niben = new npIcon({iconUrl: 'icons/nibenay.png'})
+			colovia = new npIcon({iconUrl: 'icons/colovia.png'})
+			ayleid = new npIcon({iconUrl: 'icons/ayleid.png'})
+			falinesti = new npIcon({iconUrl: 'icons/falinesti.png'})
+			boiche = new npIcon({iconUrl: 'icons/boiche.png'})
+			elsweyr = new npIcon({iconUrl: 'icons/elsweyr.png'})
+			reach = new npIcon({iconUrl: 'icons/reach.png'})
+			maormer = new npIcon({iconUrl: 'icons/pirate.png'})
+			argonia = new npIcon({iconUrl: 'icons/argonia.png'})
+			lilmoth = new npIcon({iconUrl: 'icons/lilmoth.png'})
+			morrowind = new npIcon({iconUrl: 'icons/resdayn.png'})
+			dragon = new npIcon({iconUrl: 'icons/EbonPact.png'})
+			velothi = new npIcon({iconUrl: 'icons/DAzura.png'})
+		;
+		*/
+		/*List of Markers*/
+		/* reference http://harrywood.co.uk/maps/examples/leaflet/marker-array.view.html */
+		/*var markers = [
+			//[Lat, Long, icon, 'popup']
+			[16.1, -47.9, falinesti, "Summer Falinesti"],
+			[27.4, -42.9, boiche, "Arenthia"],
+			[3.6, -63.6, boiche, "Wilder Court"],
+			[4.5, -37.7, boiche, "Valenwood"],
+			[-10.0, -33.1, falinesti, "Winter Falinesti"],
+			[24.3, -22.8, elsweyr, "Anequina"],
+			[-0.7, -12.6, elsweyr, "Pelletine"],
+			[-20.2, -18.5, elsweyr, "Khenarthi\'s Roost"],
+			[10.0, 5.9, elsweyr, "Leyawiin"],
+			[72.8, -49.4, reach, "The Reach"],
+			[-42.5, -56.4, maormer, "Pyandonea"],
+			[71.6, 139.9, akaviri, "Tsaesci (NPC)"],
+			[75.8, 154.3, akaviri, "Tang Mo (NPC)"],
+			[72.7, 173.8, akaviri, "Po'Tun (NPC)"],
+			[78.3, 170.5, akaviri, "Kamal (NPC)"],
+			[69.3, -94.9, alinor, "Balfiera (Direnni)"],
+			[-17.9, 24.6, argonia, "Sarpa"],
+			[17.1, 20.2, argonia, "Bright-Throat"],
+			[10.6, 32.7, argonia, "Naga"],
+			[-2.8, 30.9, argonia, "Paatru"],
+			[23.2, 37.1, ind, "Kothringi"],
+			[26.7, 54.6, argonia, "Agaceph (Free)"],
+			[13.2, 57.5, argonia, "Archein"],
+			[5.8, 50.3, argonia, "Agaceph (Patan)"],
+			[-10.1, 51.3, lilmoth, "Lilmothiit"],
+			[38.1, 54.8, morrowind, "Dres"],
+			[47.7, 46.4, morrowind, "Hlaalu"],
+			[56.9, 59.7, morrowind, "Indoril"],
+			[70.9, 67.1, morrowind, "Telvanni"],
+			[72.4, 18.3, morrowind, "Redoran"],
+			[60.7, 23.5, morrowind, "Sadras"],
+			[68.4, 36.7, morrowind, "Hlaalu"],
+			[83.7, -21.1, dragon, "Atmora (NPC)"],
+			[82.6, 45.7, dragon, "Roscrea"],
+			[80.4, 24.6, ind, "Skaal"],
+			[80.4, 16.5, ind, "Rieklings"],
+			[63.3, 97.2, velothi, "Cathnoquey"],
+			[60.3, 107.4, sorc, "Yneslea"],
+			[64.4, 114.0, sorc, "Esroniet"],
+			[75.8, 31.9, velothi, "Urshilaku"],
+			[67.6, 52.4, velothi, "Erabenimsun"],
+			[73.0, 46.2, velothi, "Zainab"],
+			[75.0, 44.5, velothi, "Ahemmusa"]
+			
+			]
+		
+         //Loop through the markers array
+         for (var i=0; i<markers.length; i++) {
+           
+            var lat = markers[i][0];
+            var lon = markers[i][1];
+			var icn = markers[i][2];
+            var popupText = markers[i][3];
+            
+             var marker = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText).addTo(map);
+         
+         }
+		*/
+		/*Marker Placements*/
+		/*
+		L.marker([12.7, -83.6], {icon: alinor}).bindPopup('Auridon').addTo(map);
+		L.marker([-5.9, -105.9], {icon: alinor}).bindPopup('Alinor').addTo(map);
+		L.marker([15.2, -101.7], {icon: alinor}).bindPopup('Cloudrest').addTo(map);
+		L.marker([-7.2, -91.8], {icon: alinor}).bindPopup('Dusk').addTo(map);
+		
+		L.marker([41.7, -119.3], {icon: hammerfell}).bindPopup('The Isles (Stros M\'Kai)').addTo(map);
+		L.marker([41.2, -99.4], {icon: hammerfell}).bindPopup('Stros M\'Kai').addTo(map);
+		L.marker([51.4, -76.8], {icon: hammerfell}).bindPopup('Gilane').addTo(map);
+		L.marker([51.2, -54.4], {icon: hammerfell}).bindPopup('Rihad').addTo(map);
+		L.marker([62.7, -43.4], {icon: hammerfell}).bindPopup('Elinhir').addTo(map);
+		
+		L.marker([50.0, -3.6], {icon: imperial}).bindPopup('The White Gold City').addTo(map);
+		
+		L.marker([23.5, -168.9], {icon: ind}).bindPopup('Sinistral Mer').addTo(map);
+		L.marker([50.4, -163.4], {icon: ind}).bindPopup('No-Totambu').addTo(map);
+		
+		L.marker([34.5, -146.9], {icon: sorc}).bindPopup('Coral Kingdom (Sloads)').addTo(map);
+		L.marker([31.4, -110.6], {icon: sorc}).bindPopup('Eyevea').addTo(map);
+		
+		L.marker([61.3, -92.4], {icon: hammerfell}).bindPopup('Sentinel').addTo(map);
+		L.marker([54.1, -103.3], {icon: hammerfell}).bindPopup('Hegathe').addTo(map);
+		L.marker([60.8, -63.5], {icon: hammerfell}).bindPopup('Mournoth').addTo(map);
+		L.marker([66.2, -74.1], {icon: hammerfell}).bindPopup('Hallin\'s Stand').addTo(map);
+		L.marker([66.7, -57.4], {icon: hammerfell}).bindPopup('Dragonstar').addTo(map);
+		
+		L.marker([59.2, -117.6], {icon: orcs}).bindPopup('Betnikh (Seamount Clan)').addTo(map);
+		L.marker([75.5, -63.3], {icon: orcs}).bindPopup('Wrothgar').addTo(map);
+		
+		L.marker([63.8, -115.0], {icon: breton}).bindPopup('Daggerfall').addTo(map);
+		L.marker([70.2, -111.7], {icon: breton}).bindPopup('Camlorn').addTo(map);
+		L.marker([67.8, -105.5], {icon: breton}).bindPopup('Aldcroft').addTo(map);
+		L.marker([71.7, -93.8], {icon: breton}).bindPopup('Alcaire').addTo(map);
+		L.marker([74.7, -96.3], {icon: breton}).bindPopup('Rivenspire').addTo(map);
+		L.marker([76.8, -87.2], {icon: breton}).bindPopup('Northpoint').addTo(map);
+		L.marker([70.5, -83.8], {icon: breton}).bindPopup('Stormhaven').addTo(map);
+		L.marker([71.9, -72.6], {icon: breton}).bindPopup('Evermor').addTo(map);
+		
+		L.marker([78.4, -43.9], {icon: skyrim}).bindPopup('Haafingar').addTo(map);
+		L.marker([76.7, -18.8], {icon: skyrim}).bindPopup('The Pale').addTo(map);
+		L.marker([76.9, -35.7], {icon: skyrim}).bindPopup('Hjaalmarch').addTo(map);
+		L.marker([77.2, -4.2], {icon: skyrim}).bindPopup('Winterhold').addTo(map);
+		L.marker([73.6, -1.1], {icon: skyrim}).bindPopup('Eastmarch').addTo(map);
+		L.marker([67.4, -1.4], {icon: skyrim}).bindPopup('The Rift').addTo(map);
+		L.marker([73.5, -26.8], {icon: skyrim}).bindPopup('Whiterun').addTo(map);
+		L.marker([68.3, -28.3], {icon: skyrim}).bindPopup('Falkreath').addTo(map);
+		
+		L.marker([61.7, -7.0], {icon:niben}).bindPopup('Bruma').addTo(map);
+		L.marker([51.9, 14.4,], {icon:niben}).bindPopup('Cheydinhal').addTo(map);
+		L.marker([37.2, 20.6], {icon:niben}).bindPopup('Bravil').addTo(map);
+		
+		L.marker([40.1, 5.5], {icon:ayleid}).bindPopup('Nenalata').addTo(map);
+		
+		L.marker([41.8, -17.9], {icon:colovia}).bindPopup('Skingrad').addTo(map);
+		L.marker([57.8, -26.9], {icon:colovia}).bindPopup('Chorrol').addTo(map);
+		L.marker([44.2, -42.6], {icon:colovia}).bindPopup('Kvatch').addTo(map);
+		L.marker([38.4, -55.8], {icon:colovia}).bindPopup('Anvil').addTo(map);
+		
+		L.marker([24.4, -0.4], {icon:akaviri}).bindPopup('Rimmen').addTo(map);
+    */
+  
+  
 
 
  
