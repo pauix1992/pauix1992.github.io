@@ -3,14 +3,19 @@
   <title>Map Testing</title>
   <link rel="stylesheet" href="leaflet/leaflet.css">
   <script src="leaflet/leaflet.js"></script>
+  <style>
+    #map {
+            height: 4871px;
+            width: 4871px;
+  </style>
 </head>
 <body>
-  <div id="map" style="width:100%;height:100%"></div>
+  <div id="map"></div>
   <script>
 
  
         var map = L.map('map').setView([50.85, -8.04], 2);
-        L.tileLayer('img/map_{z}_{y}-{x}.jpeg', {
+        L.tileLayer('img/map_{z}_{y}-{x}.png', {
             minZoom: 0,
             maxZoom: 3,
             attribution: 'NirnPowers Map by tofukiin',
