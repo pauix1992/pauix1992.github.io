@@ -13,33 +13,30 @@
   <div id="map"></div>
   <script>
 
-  // initialize the map
-  // Adapted from nirnpowers.github.io 
  
-  
-        var map = L.map('map').setView([0,0], 2);
-        L.tileLayer('img/map-{z}-{x}-{y}.png', {
+        var map = L.map('map').setView([50.85, -8.04], 2);
+        L.tileLayer('img/map_{z}_{y}-{x}.png', {
             minZoom: 0,
-            maxZoom: 2,
-            attribution: 'ITP map test',
+            maxZoom: 3,
+            attribution: 'NirnPowers Map by tofukiin',
             tms: false,
 			noWrap: true,
         }).addTo(map);
 		
-		
-		/*This function gives you Lat Long of what you click on */
+				/*This function gives you Lat Long of what you click on */
 		var popup = L.popup();
 
-		map.on('click', onMapClick);
 		function onMapClick(e) {
 			popup
 				.setLatLng(e.latlng)
 				.setContent("You clicked the map at " + e.latlng.toString())
 				.openOn(map);
 		};
+
+		map.on('click', onMapClick);
 		
 		/*Custom Icons*/
-/*
+		/*
 		var npIcon = L.Icon.extend({
 			options: {
 				iconSize: [40, 40],
@@ -53,7 +50,7 @@
 			iconSize: [28, 52],
 			popupAnchor: [0, -26]
 		});
-
+		
 		var alinor = new npIcon({iconUrl: 'icons/alinor2.png'})
 			hammerfell = new npIcon ({iconUrl: 'icons/hammerfell.png'})
 			imperial = new npIcon({iconUrl: 'icons/imperialcity.png'})
@@ -76,10 +73,10 @@
 			dragon = new npIcon({iconUrl: 'icons/EbonPact.png'})
 			velothi = new npIcon({iconUrl: 'icons/DAzura.png'})
 		;
-		*/
+		
 		/*List of Markers*/
 		/* reference http://harrywood.co.uk/maps/examples/leaflet/marker-array.view.html */
-		/*var markers = [
+		var markers = [
 			//[Lat, Long, icon, 'popup']
 			[16.1, -47.9, falinesti, "Summer Falinesti"],
 			[27.4, -42.9, boiche, "Arenthia"],
@@ -138,9 +135,9 @@
              var marker = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText).addTo(map);
          
          }
-		*/
+		
 		/*Marker Placements*/
-		/*
+		
 		L.marker([12.7, -83.6], {icon: alinor}).bindPopup('Auridon').addTo(map);
 		L.marker([-5.9, -105.9], {icon: alinor}).bindPopup('Alinor').addTo(map);
 		L.marker([15.2, -101.7], {icon: alinor}).bindPopup('Cloudrest').addTo(map);
