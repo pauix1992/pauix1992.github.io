@@ -3,6 +3,7 @@
   <title>Map Testing</title>
   <link rel="stylesheet" href="leaflet/leaflet.css">
   <script src="leaflet/leaflet.js"></script>
+  <script src="markers.js"></script>
   <style>
     #map {
             height: 100%;
@@ -15,9 +16,9 @@
 
  
         var map = L.map('map').setView([50.85, -8.04], 2);
-        L.tileLayer('img/map_{z}_{y}-{x}.jpeg', {
+        L.tileLayer('img/map/{z}/{y}-{x}.jpeg', {
             minZoom: 0,
-            maxZoom: 4,
+            maxZoom: 5,
             attribution: 'NirnPowers Map by tofukiin',
             tms: false,
 			noWrap: true,
@@ -35,6 +36,22 @@
 		};
 
 		map.on('click', onMapClick);
+		
+
+		
+		
+		//Loop through the markers array and add markers to map
+         for (var i=0; i<markers.length; i++) {
+           
+            var lat = markers[i][0];
+            var lon = markers[i][1];
+			var icn = markers[i][2];
+            var popupText = markers[i][3];
+            
+             var marker = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText).addTo(map);
+         
+         }
+		
 		
 		/*Custom Icons*/
 		/*
