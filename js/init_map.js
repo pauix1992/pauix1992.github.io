@@ -11,12 +11,19 @@
         }).addTo(map);
 		
 		/*This function gives you Lat Long of what you click on */
-		var popup = L.popup();
+		
 		function onMapClick(e) {
-			popup
-				.setLatLng(e.latlng)
-				.setContent("You clicked the map at " + e.latlng.toString())
-				.openOn(map);
+			if(confirm("ADD MARKER HERE=?")){}
+				var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
+				var txt = prompt("Text")
+				m_icon = L.icon({iconUrl: 'img/marker/'+mrk+'.png',iconSize: [32, 37]})
+				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon}).bindPopup(txt);
+				map.addLayer(mark)
+	
+				$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+","+mrk+",\""+txt+"\"],\n")
+	
+			}
+
 		};
 		map.on('click', onMapClick);
 		

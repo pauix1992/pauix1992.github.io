@@ -9,23 +9,6 @@
   <script src="js/leaflet.js"></script>
   <script src="js/markers.js"></script>
   <script>
-     function addMarker(){
-		var lng = prompt("Longitude:")
-		var lat = prompt("Latitude:")
-		var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
-		var txt = prompt("Text")
-		
-		
-		
-		longitude = parseFloat(lng)
-		latitude = parseFloat(lat)
-		m_icon = L.icon({iconUrl: 'img/marker/'+mrk+'.png',iconSize: [32, 37]})
-		
-		mark = new L.Marker([latitude, longitude], {icon: m_icon}).bindPopup(txt);
-		map.addLayer(mark)
-		
-
-	 }
   </script>
   </head>
 <body>
@@ -33,7 +16,7 @@
     <div id="link" onClick='window.location.href="https://reddit.com/r/ironthronepowers"'></div>
   </div>
   <div id="toolbar">
-    <button class="btn btn-primary" onClick="addMarker()"> Add marker </button>
+    <textarea class="form-control" id="text" style="resize:none;font-size:10px" rows="999"></textarea>
   </div>
   <div id="map"></div>
   <script src="js/init_map.js"></script>  

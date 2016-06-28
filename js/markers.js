@@ -25,4 +25,7 @@ var markers = [
 	// icon is one of the names defined above
 	// popup is the text that will display on screen
 	[-29.57346, -98.08594, SL, "Blackhaven"],
+	[73.93463448326798,-126.43066406249999,North,"Bear Island"],
+[77.30286448413767,-89.6484375,Wall,"Castle Black"]
+
 ]
