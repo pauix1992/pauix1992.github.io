@@ -22,6 +22,7 @@
 	overflow: hidden;
 	-ms-touch-action: none;
 	touch-action: none;
+	background-color:#A6BFDE !important;
 	}
 .leaflet-tile,
 .leaflet-marker-icon,
