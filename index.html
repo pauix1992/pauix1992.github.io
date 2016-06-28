@@ -1,73 +1,41 @@
 <html>
 <head>
   <title>Map Testing</title>
-  <link rel="stylesheet" href="leaflet/leaflet.css">
-  <script src="leaflet/leaflet.js"></script>
-  <script src="markers.js"></script>
-  <style>
-    #map {
-            height: 100%;
-            width: 100%;
-  </style>
-</head>
-<body>
-  <div id="map"></div>
+  <link rel="stylesheet" href="css/bootstrap.css">
+  <link rel="stylesheet" href="css/leaflet.css">
+  <link rel="stylesheet" href="css/page.css">
+  <script src="js/jquery.js"></script>
+  <script src="js/bootstrap.js"></script>
+  <script src="js/leaflet.js"></script>
+  <script src="js/markers.js"></script>
   <script>
-
- 
-        var map = L.map('map').setView([50.85, -8.04], 2);
-        L.tileLayer('img/map/{z}/{y}-{x}.jpeg', {
-            minZoom: 0,
-            maxZoom: 5,
-            attribution: 'ITP Map by /u/pauix',
-            tms: false,
-			noWrap: true,
-			maxBoundsViscosity: 1.0
-        }).addTo(map);
+     function addMarker(){
+		var lng = prompt("Longitude:")
+		var lat = prompt("Latitude:")
+		var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
+		var txt = prompt("Text")
 		
-		/*This function gives you Lat Long of what you click on */
-		var popup = L.popup();
-		function onMapClick(e) {
-			popup
-				.setLatLng(e.latlng)
-				.setContent("You clicked the map at " + e.latlng.toString())
-				.openOn(map);
-		};
-		map.on('click', onMapClick);
+		
+		
+		longitude = parseFloat(lng)
+		latitude = parseFloat(lat)
+		m_icon = L.icon({iconUrl: 'img/marker/'+mrk+'.png',iconSize: [32, 37]})
+		
+		mark = new L.Marker([latitude, longitude], {icon: m_icon}).bindPopup(txt);
+		map.addLayer(mark)
 		
 
-		
-		
-		//Loop through the markers (declared on marker.js) array and add markers to layer
-		var arrMarkers = []
-         for (var i=0; i<markers.length; i++) {
-           
-            var lat = markers[i][0];
-            var lon = markers[i][1];
-			var icn = markers[i][2];
-            var popupText = markers[i][3];
-            
-             var marker = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText);
-			arrMarkers.push(marker)
-         }
-		var markerLayer = L.layerGroup(arrMarkers).addTo(map);
-
-		
-		// Hide markers if the user zooms out
-		map.on('zoomend', function () {
-			if (map.getZoom() <= 2 && map.hasLayer(markerLayer)) {
-				map.removeLayer(markerLayer);
-			}
-			if (map.getZoom() > 2 && map.hasLayer(markerLayer) == false)
-			{
-				map.addLayer(markerLayer);
-			}   
-		}); 
-		
-		
-
-</script>  
-
-
- 
-</body></html>
+	 }
+  </script>
+  </head>
+<body>
+  <div id="header">
+    <div id="link" onClick='window.location.href="https://reddit.com/r/ironthronepowers"'></div>
+  </div>
+  <div id="toolbar">
+    <button class="btn btn-primary" onClick="addMarker()"> Add marker </button>
+  </div>
+  <div id="map"></div>
+  <script src="js/init_map.js"></script>  
+</body>
+</html>
