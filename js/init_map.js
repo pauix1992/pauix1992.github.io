@@ -9,7 +9,7 @@
 			noWrap: true,
 			maxBoundsViscosity: 1.0
         }).addTo(map);
-		
+		  
 		/*This function gives you Lat Long of what you click on */
 		
 		function onMapClick(e) {
