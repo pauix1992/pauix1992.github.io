@@ -3,7 +3,7 @@
         var map = L.map('map').setView([50.85, -8.04], 2);
         L.tileLayer('img/map/{z}/{y}-{x}.jpeg', {
             minZoom: 0,
-            maxZoom: 5,
+            maxZoom: 4,
             attribution: 'ITP Map by /u/pauix',
             tms: false,
 			noWrap: true,
@@ -16,7 +16,7 @@
 			if(confirm("ADD MARKER HERE=?")){
 				var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
 				var txt = prompt("Text")
-				m_icon = L.icon({iconUrl: 'img/marker/'+mrk+'.png',iconSize: [32, 37]})
+				m_icon = L.icon({iconUrl: 'img/marker/'+mrk+'.png',iconSize: [32, 74]})
 				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon}).bindPopup(txt);
 				map.addLayer(mark)
 	
