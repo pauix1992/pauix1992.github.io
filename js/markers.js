@@ -275,7 +275,7 @@ var markers_West = [
 ]
 
 // Wall
-var markers_Essos = [
+var markers_NonWesteros = [
 [77.3318091852135,-93.95507879555225,Wall,"Castle Black"],
 [77.35106958476409,-85.16601629555225,Wall,"Eastwatch"],
 [77.2544787022853,-103.00781317055225,Wall,"Shadow Tower"],
@@ -313,9 +313,6 @@ var markers_Essos = [
 [-20.797201434306984,83.05663995444775,EssosRuin,"Hazdahn No"],
 [10.487811882056683,140.88867120444775,EssosTown,"Vaes Dothrak"],
 [-40.78054143186031,-64.423828125,EssosFort,"Bloodstone (T1 Fort and T1 Port)"],
-[-47.57652571374621,40.517577454447746,ValyriaCity,"Mantarys"],
-[-47.04018214480664,30.49804620444775,ValyriaRuin,"Ruins"],
-[-48.63290858589533,21.181639954447746,ValyriaRuin,"Ruins"],
 [-51.835777520452474,52.82226495444774,EssosCity,"Tolos"],
 [-66.687783861162,82.61718682944775,EssosRuin,"Old Ghis"],
 [-73.022591571473,86.57226495444775,EssosBigCity,"New Ghis"],
@@ -344,25 +341,27 @@ var markers_Essos = [
 // Moraq
 [-76.43460358351301,158.3789049088955,EssosTown,"Vahar"],
 [-73.52839948765174,161.3671861588955,EssosTown,"Faros"],
-[-80.61842419685506,179.1210924088955,EssosTown,"Port Moraq"]]
+[-80.61842419685506,179.1210924088955,EssosTown,"Port Moraq"],
 
 // Summer Islands
-var markers_SI = [
+
 [-77.80477074199555,-46.757813170552254,SITown,"Tall Trees Town"],
 [-76.41397301513199,-56.601563170552254,SICity,"Lotus Port"],
-[-74.54332982677904,-65.39062567055225,SITown,"Last Lament"]]
+[-74.54332982677904,-65.39062567055225,SITown,"Last Lament"],
 
-//Old Valyria
-var markers_Valyria = [
+//Valyria
+[-47.57652571374621,40.517577454447746,ValyriaCity,"Mantarys"],
+[-47.04018214480664,30.49804620444775,ValyriaRuin,"Ruins"],
+[-48.63290858589533,21.181639954447746,ValyriaRuin,"Ruins"],
 [-52.908902047770255,46.142578125,ValyriaRuin,"Elyria"],
 [-61.8146638946839,60.99609375,ValyriaRuin,"Velos"],
 [-57.23150299147891,59.32617187499999,ValyriaRuin,"Ghozai"],
 [-67.67608458198097,35.68359375,ValyriaRuin,"Tyria"],
 [-68.91100484562018,21.533203125,ValyriaRuin,"Oros"],
-[-71.01695975726373,31.904296874999996,ValyriaRuin,"Valyria"]]
+[-71.01695975726373,31.904296874999996,ValyriaRuin,"Valyria"],
 
 // Sothoryos 
-var markers_Sothoryos = [
+
 [-80.8588748843299,74.619140625,SothoryosRuin,"Zamettar"],
 [-83.03688198552364,81.5625,SothoryosRuin,"Yeen"],
 [-82.48333497678894,62.75390625,SothoryosRuin,"Gogossos"],

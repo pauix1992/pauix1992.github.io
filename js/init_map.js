@@ -142,19 +142,19 @@
          }
 		var markerLayerWest = L.layerGroup(arrWestMarkers).addTo(map);	
 
-		//Loop through the Essos markers (declared on marker.js) array and add markers to layer
-		var arrEssosMarkers = []
-         for (var i=0; i<markers_Essos.length; i++) {
+		//Loop through the NonWesteros markers (declared on marker.js) array and add markers to layer
+		var arrNonWesterosMarkers = []
+         for (var i=0; i<markers_NonWesteros.length; i++) {
            
-            var lat = markers_Essos[i][0];
-            var lon = markers_Essos[i][1];
-			var icn = markers_Essos[i][2];
-            var popupText = markers_Essos[i][3];
+            var lat = markers_NonWesteros[i][0];
+            var lon = markers_NonWesteros[i][1];
+			var icn = markers_NonWesteros[i][2];
+            var popupText = markers_NonWesteros[i][3];
             
              var marker = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText);
-			arrEssosMarkers.push(marker)
+			arrNonWesterosMarkers.push(marker)
          }
-		var markerLayerEssos = L.layerGroup(arrEssosMarkers).addTo(map);	
+		var markerLayerNonWesteros = L.layerGroup(arrNonWesterosMarkers).addTo(map);	
 				
 		
 		// Hide markers if the user zooms out
@@ -168,7 +168,7 @@
 				map.removeLayer(markerLayerReach);				
 				map.removeLayer(markerLayerII);	
 				map.removeLayer(markerLayerWest);	
-				map.removeLayer(markerLayerEssos);	
+				map.removeLayer(markerLayerNonWesteros);	
 			}
 			else
 			{
@@ -180,7 +180,7 @@
 				map.addLayer(markerLayerReach);
 				map.addLayer(markerLayerII);
 				map.addLayer(markerLayerWest);
-				map.addLayer(markerLayerEssos);
+				map.addLayer(markerLayerNonWesteros);
 								
 			}   
 		}); 
@@ -266,12 +266,12 @@
 			}
 		}			
 
-		function toggleEssosLayer(){
-			if (map.hasLayer(markerLayerEssos)) {
-				map.removeLayer(markerLayerEssos);
+		function toggleNonWesterosLayer(){
+			if (map.hasLayer(markerLayerNonWesteros)) {
+				map.removeLayer(markerLayerNonWesteros);
 			}
 			else
 			{
-				map.addLayer(markerLayerEssos);
+				map.addLayer(markerLayerNonWesteros);
 			}
 		}					
