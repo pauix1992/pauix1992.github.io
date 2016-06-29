@@ -9,7 +9,7 @@
         }).addTo(map);
 		  
 		/*This function gives you Lat Long of what you click on */
-		
+		/*
 		function onMapClick(e) {
 			if(confirm("ADD MARKER HERE=?")){
 				var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
@@ -24,7 +24,7 @@
 
 		};
 		map.on('click', onMapClick);
-		
+		*/
 
 		
 		//Loop through the SL markers (declared on marker.js) array and add markers to layer
@@ -127,6 +127,21 @@
 			arrIIMarkers.push(marker)
          }
 		var markerLayerII = L.layerGroup(arrIIMarkers).addTo(map);	
+
+		
+		//Loop through the RL markers (declared on marker.js) array and add markers to layer
+		var arrRLMarkers = []
+         for (var i=0; i<markers_RL.length; i++) {
+           
+            var lat = markers_RL[i][0];
+            var lon = markers_RL[i][1];
+			var icn = markers_RL[i][2];
+            var popupText = markers_RL[i][3];
+            
+             var marker = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText);
+			arrRLMarkers.push(marker)
+         }
+		var markerLayerRL = L.layerGroup(arrRLMarkers).addTo(map);	
 		
 		//Loop through the West markers (declared on marker.js) array and add markers to layer
 		var arrWestMarkers = []
@@ -167,6 +182,7 @@
 				map.removeLayer(markerLayerDorne);
 				map.removeLayer(markerLayerReach);				
 				map.removeLayer(markerLayerII);	
+				map.removeLayer(markerLayerRL);
 				map.removeLayer(markerLayerWest);	
 				map.removeLayer(markerLayerNonWesteros);	
 			}
@@ -180,6 +196,7 @@
 				map.addLayer(markerLayerReach);
 				map.addLayer(markerLayerII);
 				map.addLayer(markerLayerWest);
+				map.addLayer(markerLayerRL);
 				map.addLayer(markerLayerNonWesteros);
 								
 			}   
@@ -256,6 +273,16 @@
 			}
 		}			
 
+		function toggleRLLayer(){
+			if (map.hasLayer(markerLayerRL)) {
+				map.removeLayer(markerLayerRL);
+			}
+			else
+			{
+				map.addLayer(markerLayerRL);
+			}
+		}	
+		
 		function toggleWestLayer(){
 			if (map.hasLayer(markerLayerWest)) {
 				map.removeLayer(markerLayerWest);

@@ -50,6 +50,9 @@ var ReachCity = L.icon({iconUrl: 'img/marker/ReachCity.png',iconSize: [32, 74]})
 var ReachCapitol = L.icon({iconUrl: 'img/marker/ReachCapitol.png',iconSize: [32, 74]})
 
 var RL = L.icon({iconUrl: 'img/marker/RL.png',iconSize: [32, 74]})
+var RLtown = L.icon({iconUrl: 'img/marker/RLTown.png',iconSize: [32, 74]})
+var RLfort = L.icon({iconUrl: 'img/marker/RLFort.png',iconSize: [32, 74]})
+var RLcapitol = L.icon({iconUrl: 'img/marker/RLCapitol.png',iconSize: [32, 74]})
 
 var TrueNorth = L.icon({iconUrl: 'img/marker/TrueNorth.png',iconSize: [32, 74]})
 
@@ -248,6 +251,39 @@ var markers_Dorne = [
 [-40.44694705960048,-126.03515625,Dorne,"Blackmont"],
 [-43.644025847699496,-126.03515625,Dorne,"High Hermitage"],
 [-47.5172006978394,-129.375,Dorne,"Starfall"]]
+
+//Riverlands
+var markers_RL = [
+[40.58058466412764,-101.513671875,RLfort,"San Freycisco"],
+[33.7243396617476,-119.970703125,RLtown,"Seagard"],
+[39.50404070558415,-108.45703125,RLfort,"Wolfswatch"],
+[36.527294814546245,-114.43359375,RLcapitol,"The Crossing"],
+[30.221101852485987,-110.21484375,RL,"Castle Lychester"],
+[30.14512718337613,-116.71874999999999,RL,"Hag's Mire"],
+[25.562265014427492,-116.806640625,RL,"Raventree Hall"],
+[26.352497858154,-110.56640625,RLtown,"Fairmarket"],
+[25.48295117535531,-103.88671875,RL,"Cylene Tower"],
+[20.138470312451155,-100.546875,RLtown,"Lord Harroway's Town"],
+[17.14079039331665,-93.8671875,RLtown,"Saltpans"],
+[13.15437605541853,-89.384765625,RLtown,"Maidenpool"],
+[10.228437266155943,-97.998046875,RL,"The Spike"],
+[15.114552871944102,-98.349609375,RLfort,"Fort Terminus"],
+[13.581920900545844,-101.865234375,RL,"Harrenhal"],
+[10.574222078332806,-105.908203125,RL,"Willow Wood"],
+[6.839169626342808,-102.39257812499999,RL,"Briarwhite"],
+[3.162455530237848,-108.369140625,RL,"Atranta"],
+[1.9332268264771233,-112.32421875,RLfort,"Rose Red"],
+[10.660607953624762,-110.390625,RLtown,"Wendish Town"],
+[6.140554782450308,-115.927734375,RLtown,"Stoney Sept"],
+[12.12526421833159,-119.970703125,RL,"Pinkmaiden"],
+[12.297068292853805,-115.75195312499999,RL,"Acorn Hall"],
+[18.396230138028827,-113.37890625,RL,"Stone Hedge"],
+[22.024545601240337,-109.599609375,RLtown,"Pennytree"],
+[19.062117883514667,-104.150390625,RL,"Darry"],
+[19.642587534013046,-117.42187500000001,RL,"Riverrun"],
+[19.559790136497398,-120.498046875,RL,"Sherrer"],
+[16.88865978738161,-121.728515625,RL,"Wayfarer's Rest"],
+[10.833305983642491,-101.77734374999999,RLfort,"Isle of Ashes"]]
 
 var markers_West = [
 //Westerlands
