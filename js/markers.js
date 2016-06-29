@@ -145,6 +145,12 @@ var markers = [
 [47.45780853075031,-138.779296875,North,"Flint's Finger"],
 [53.69670647530323,-134.47265625,NorthFort,"Ironguard"],
 
+// Wall
+[77.3318091852135,-93.95507879555225,Wall,"Castle Black"],
+[77.35106958476409,-85.16601629555225,Wall,"Eastwatch"],
+[77.2544787022853,-103.00781317055225,Wall,"Shadow Tower"],
+
+
 
 // Free Cities
 [41.3108238809182,-44.12109374999999,EssosBigCity,"Braavos"],
