@@ -128,6 +128,20 @@
          }
 		var markerLayerII = L.layerGroup(arrIIMarkers).addTo(map);	
 		
+		//Loop through the West markers (declared on marker.js) array and add markers to layer
+		var arrWestMarkers = []
+         for (var i=0; i<markers_West.length; i++) {
+           
+            var lat = markers_West[i][0];
+            var lon = markers_West[i][1];
+			var icn = markers_West[i][2];
+            var popupText = markers_West[i][3];
+            
+             var marker = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText);
+			arrWestMarkers.push(marker)
+         }
+		var markerLayerWest = L.layerGroup(arrWestMarkers).addTo(map);	
+
 		//Loop through the Essos markers (declared on marker.js) array and add markers to layer
 		var arrEssosMarkers = []
          for (var i=0; i<markers_Essos.length; i++) {
@@ -153,6 +167,7 @@
 				map.removeLayer(markerLayerDorne);
 				map.removeLayer(markerLayerReach);				
 				map.removeLayer(markerLayerII);	
+				map.removeLayer(markerLayerWest);	
 				map.removeLayer(markerLayerEssos);	
 			}
 			else
@@ -164,6 +179,7 @@
 				map.addLayer(markerLayerDorne);
 				map.addLayer(markerLayerReach);
 				map.addLayer(markerLayerII);
+				map.addLayer(markerLayerWest);
 				map.addLayer(markerLayerEssos);
 								
 			}   
@@ -239,7 +255,16 @@
 				map.addLayer(markerLayerII);
 			}
 		}			
-		
+
+		function toggleWestLayer(){
+			if (map.hasLayer(markerLayerWest)) {
+				map.removeLayer(markerLayerWest);
+			}
+			else
+			{
+				map.addLayer(markerLayerWest);
+			}
+		}			
 
 		function toggleEssosLayer(){
 			if (map.hasLayer(markerLayerEssos)) {

@@ -62,6 +62,9 @@ var Valefort = L.icon({iconUrl: 'img/marker/Valefort.png',iconSize: [32, 74]})
 var Wall = L.icon({iconUrl: 'img/marker/Wall.png',iconSize: [32, 74]})
 
 var West = L.icon({iconUrl: 'img/marker/West.png',iconSize: [32, 74]})
+var WestTown = L.icon({iconUrl: 'img/marker/WestTown.png',iconSize: [32, 74]})
+var WestCity = L.icon({iconUrl: 'img/marker/WestCity.png',iconSize: [32, 74]})
+var WestCapitol = L.icon({iconUrl: 'img/marker/WestCapitol.png',iconSize: [32, 74]})
 
 // Define the markers
 var markers_SL = [
@@ -245,6 +248,31 @@ var markers_Dorne = [
 [-40.44694705960048,-126.03515625,Dorne,"Blackmont"],
 [-43.644025847699496,-126.03515625,Dorne,"High Hermitage"],
 [-47.5172006978394,-129.375,Dorne,"Starfall"]]
+
+var markers_West = [
+//Westerlands
+[22.674847351188536,-138.69140625,West,"Banefort"],
+[20.385825381874263,-128.671875,West,"Goldford"],
+[14.689881366618774,-124.8046875,West,"Golden Tooth"],
+[17.727758609852284,-134.38476562499997,West,"Castamere"],
+[17.978733095556183,-138.69140625,West,"The Crag"],
+[11.26461221250444,-145.1953125,West,"Faircastle"],
+[10.401377554543553,-138.779296875,West,"Riverspring"],
+[14.519780046326085,-132.890625,West,"Ashemark"],
+[10.833305983642491,-134.38476562499997,West,"Sarsfield"],
+[7.27529233637217,-135.87890625,West,"Pitfall"],
+[5.878332109674327,-150.29296875,WestTown,"Kayce"],
+[2.0210651187669897,-151.962890625,West,"Feastfires"],
+[4.214943141390651,-143.876953125,WestCapitol,"Casterly Rock"],
+[7.623886853120036,-128.84765625,West,"Hornvale"],
+[2.986927393334876,-126.21093749999999,West,"Deep Den"],
+[2.1088986592431382,-132.275390625,West,"Silverhill"],
+[-1.2303741774326018,-140.44921875,West,"Clegane's Keep"],
+[-8.233237111274553,-148.53515625,West,"Crakehall"],
+[-5.9657536710655235,-132.5390625,West,"The Bower"],
+[-6.664607562172573,-138.8671875,West,"Cornfield"],
+[2.6357885741666065,-143.876953125,WestCity,"Lannisport"]
+]
 
 // Wall
 var markers_Essos = [
