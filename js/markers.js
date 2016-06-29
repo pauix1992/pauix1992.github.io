@@ -50,9 +50,9 @@ var ReachCity = L.icon({iconUrl: 'img/marker/ReachCity.png',iconSize: [32, 74]})
 var ReachCapitol = L.icon({iconUrl: 'img/marker/ReachCapitol.png',iconSize: [32, 74]})
 
 var RL = L.icon({iconUrl: 'img/marker/RL.png',iconSize: [32, 74]})
-var RLtown = L.icon({iconUrl: 'img/marker/RLTown.png',iconSize: [32, 74]})
-var RLfort = L.icon({iconUrl: 'img/marker/RLFort.png',iconSize: [32, 74]})
-var RLcapitol = L.icon({iconUrl: 'img/marker/RLCapitol.png',iconSize: [32, 74]})
+var RLtown = L.icon({iconUrl: 'img/marker/RLtown.png',iconSize: [32, 74]})
+var RLfort = L.icon({iconUrl: 'img/marker/RLfort.png',iconSize: [32, 74]})
+var RLcapitol = L.icon({iconUrl: 'img/marker/RLcapitol.png',iconSize: [32, 74]})
 
 var TrueNorth = L.icon({iconUrl: 'img/marker/TrueNorth.png',iconSize: [32, 74]})
 
