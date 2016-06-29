@@ -33,7 +33,7 @@ var ValyriaCity = L.icon({iconUrl: 'img/marker/ValyriaCity.png',iconSize: [32, 7
 
 var SothoryosRuin = L.icon({iconUrl: 'img/marker/SothoryosRuin.png',iconSize: [32, 74]})
 
-var UlthosTown = L.icon({iconUrl: 'img/marker/UlthosTown.png',iconSize: [32, 74]})
+var Rhoynish = L.icon({iconUrl: 'img/marker/Rhoynish.png',iconSize: [32, 74]})
 
 var SICity = L.icon({iconUrl: 'img/marker/SICity.png',iconSize: [32, 74]})
 var SITown = L.icon({iconUrl: 'img/marker/SITown.png',iconSize: [32, 74]})
@@ -231,10 +231,10 @@ var markers = [
 [-82.48333497678894,62.75390625,SothoryosRuin,"Gogossos"],
 [-79.68718415450823,132.099609375,SothoryosRuin,"Gorosh"],
 
-// Ulthos
-[-76.43460358351301,158.3789049088955,UlthosTown,"Vahar"],
-[-73.52839948765174,161.3671861588955,UlthosTown,"Faros"],
-[-80.61842419685506,179.1210924088955,UlthosTown,"Port Moraq"]
+// Moraq
+[-76.43460358351301,158.3789049088955,EssosTown,"Vahar"],
+[-73.52839948765174,161.3671861588955,EssosTown,"Faros"],
+[-80.61842419685506,179.1210924088955,EssosTown,"Port Moraq"]
 
 
 ]
