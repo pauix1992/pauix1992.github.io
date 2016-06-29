@@ -16,7 +16,20 @@
     <div id="link" onClick='window.location.href="https://reddit.com/r/ironthronepowers"'></div>
   </div>
   <div id="toolbar">
-    <textarea class="form-control" id="text" style="resize:none;font-size:10px;height:100%"></textarea>
+    <button type="button" class="btn" style="background-color:#f0c61d" onClick="toggleSLLayer()">Toggle SL</button>
+	<button type="button" class="btn" style="background-color:#daed0e" onClick="toggleCLLayer()">Toggle CL</button>
+	<button type="button" class="btn" style="background-color:#5bc0de" onClick="toggleValeLayer()">Toggle Vale</button>
+	<button type="button" class="btn" style="background-color:#b8b2b5" onClick="toggleNorthLayer()">Toggle North</button>
+	<button type="button" class="btn" style="background-color:#da6913" onClick="toggleDorneLayer()">Toggle Dorne</button>
+	<button type="button" class="btn" style="background-color:#4ca20b" onClick="toggleReachLayer()">Toggle Reach</button>
+	<button type="button" class="btn" style="background-color:#323232" onClick="toggleIILayer()">Toggle II (TODO)</button>
+	<button type="button" class="btn" style="background-color:#8333ef" onClick="toggleEssosLayer()">Toggle ESSOS (TODO)</button>
+<!--
+	<button type="button" class="btn" onClick="toggleNorthLayer()">Toggle Sothoryos (TODO)</button>
+	<button type="button" class="btn" onClick="toggleNorthLayer()">Toggle Valyria (TODO)</button>
+	<button type="button" class="btn" onClick="toggleNorthLayer()">Toggle Isles (TODO)</button>
+-->
+	<!--    <textarea class="form-control" id="text" style="resize:none;font-size:10px;height:100%"></textarea> -->
   </div>
   <div id="map"></div>
   <script src="js/init_map.js"></script>  
