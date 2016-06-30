@@ -28,17 +28,23 @@
 	<button type="button" class="btn btn-block" style="background-color:#8333ef" onClick="toggleNonWesterosLayer()">Toggle Rest</button>
     <hr>
 	<button id="btn-line" type="button" class="btn btn-block btn-default" data-drawing="no" style="color:#000" onClick="add_line()">Draw Line</button>
+	<button id="btn-line" type="button" class="btn btn-block btn-default" style="color:#000" onClick="clear_lines()">Clear Lines</button>
 	  <!-- <textarea class="form-control" id="text" style="resize:none;font-size:10px;height:50%"></textarea> -->
   </div>
   <div id="map"></div>
   <script src="js/init_map.js"></script>  
   <script>
+	var polylines = []
+	var currentLine;
 	function add_line(){
 		btn = $("#btn-line")
 		if(btn.data('drawing') == "no"){
 			btn.html("Stop drawing line")
 			btn.data("drawing","yes")
+			currentLine = L.polyline([], {color: prompt("Enter Color")}).addTo(map);
+			polylines.push(currentLine);
 			map.on('click', onMapClick);
+			
 		}
 		else{
 			btn.html("Draw line")
@@ -46,22 +52,29 @@
 			map.off('click',onMapClick);	
 		}
 	}
-	
-		/*This function gives you Lat Long of what you click on */
-		var polyline = L.polyline([], {color: 'red'}).addTo(map);
-		function onMapClick(e) {
-			//if(confirm("ADD MARKER HERE=?")){
-			//	var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
-			//	var txt = prompt("Text")
-				m_icon = L.icon({iconUrl: 'img/marker/transparent.png',iconSize: [32, 74]})
-				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon})//.bindPopup(txt);
-				map.addLayer(mark)
-				polyline.addLatLng(mark.getLatLng())	
-			//	$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+","+mrk+",\""+txt+"\"],\n")
-	
-		//	}
 
-		};
+	function clear_lines(){
+		if(confirm("Are you sure?"))
+			for(var i = 0; i < polylines.length; ++i){
+				map.removeLayer(polylines[i])
+			}	
+	}
+	
+	/*This function gives you Lat Long of what you click on */
+	function onMapClick(e) {
+	
+		//if(confirm("ADD MARKER HERE=?")){
+		//	var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
+		//	var txt = prompt("Text")
+			m_icon = L.icon({iconUrl: 'img/marker/transparent.png',iconSize: [32, 74]})
+			mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon})//.bindPopup(txt);
+			map.addLayer(mark)
+			currentLine.addLatLng(mark.getLatLng())	
+		//	$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+","+mrk+",\""+txt+"\"],\n")
+
+	//	}
+
+	};
   </script>
 </body>
 </html>
