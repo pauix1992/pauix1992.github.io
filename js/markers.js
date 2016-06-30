@@ -137,7 +137,7 @@ var markers_North = [
 [57.27904276497778,-67.8515625,North,"Widow's Watch"],
 [62.59334083012024,-94.306640625,North,"Sheepshead Hills"],
 [64.35893097894458,-90.17578124999999,North,"Hornwood"],
-[68.33437594128185,-87.5390625,North,"The Dreadfort"],
+[68.33437594128185,-87.5390625,North,"The Dreadfort<br><b>Troops:</b>20 good men"],
 [70.61261423801925,-70.400390625,North,"Karhold"],
 [73.47848507889992,-91.93359375,North,"Last Hearth"],
 [75.47513069090051,-70.48828125,North,"Kingshouse"],
