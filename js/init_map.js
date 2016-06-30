@@ -8,23 +8,7 @@
 			maxBoundsViscosity: 1.0
         }).addTo(map);
 		  
-		/*This function gives you Lat Long of what you click on */
-		var polyline = L.polyline([], {color: 'red'}).addTo(map);
-		function onMapClick(e) {
-			//if(confirm("ADD MARKER HERE=?")){
-			//	var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
-			//	var txt = prompt("Text")
-				m_icon = L.icon({iconUrl: 'img/marker/transparent.png',iconSize: [32, 74]})
-				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon})//.bindPopup(txt);
-				map.addLayer(mark)
-				polyline.addLatLng(mark.getLatLng())	
-			//	$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+","+mrk+",\""+txt+"\"],\n")
-	
-		//	}
 
-		};
-		map.on('click', onMapClick);
-		
 
 		
 		//Loop through the SL markers (declared on marker.js) array and add markers to layer
