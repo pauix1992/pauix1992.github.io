@@ -9,7 +9,7 @@
         }).addTo(map);
 		  
 		/*This function gives you Lat Long of what you click on */
-		/*
+		
 		function onMapClick(e) {
 			if(confirm("ADD MARKER HERE=?")){
 				var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
@@ -24,7 +24,7 @@
 
 		};
 		map.on('click', onMapClick);
-		*/
+		
 
 		
 		//Loop through the SL markers (declared on marker.js) array and add markers to layer
