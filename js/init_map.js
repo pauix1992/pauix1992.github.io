@@ -327,7 +327,7 @@
 		};
 		selector.addTo(map);
 		
-		
+		  
 		markerLayerNonWesteros.eachLayer(function(layer) {
 			var optionElement = document.createElement("option");
 			console.log(layer)
