@@ -8,7 +8,23 @@
 			maxBoundsViscosity: 1.0
         }).addTo(map);
 		  
+		/*This function gives you Lat Long of what you click on */
+		/*
+		function onMapClick(e) {
+			if(confirm("ADD MARKER HERE=?")){
+				var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
+				var txt = prompt("Text")
+				m_icon = L.icon({iconUrl: 'img/marker/'+mrk+'.png',iconSize: [32, 74]})
+				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon}).bindPopup(txt);
+				map.addLayer(mark)
+	
+				$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+","+mrk+",\""+txt+"\"],\n")
+	
+			}
 
+		};
+		map.on('click', onMapClick);
+		*/
 
 		
 		//Loop through the SL markers (declared on marker.js) array and add markers to layer
@@ -153,7 +169,21 @@
              var marker = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText);
 			arrNonWesterosMarkers.push(marker)
          }
-		var markerLayerNonWesteros = L.layerGroup(arrNonWesterosMarkers).addTo(map);	
+		var markerLayerNonWesteros = L.layerGroup(arrNonWesterosMarkers).addTo(map);
+		
+		//Add logo markers to map at each layer, etc
+		var arrLogosMarkers = []
+         for (var i=0; i<markers_Logos.length; i++) {
+           
+            var lat = markers_Logos[i][0];
+            var lon = markers_Logos[i][1];
+			var icn = markers_Logos[i][2];
+            var popupText = markers_Logos[i][3];
+            
+             var marker = new L.Marker([lat, lon], {icon: icn});
+			arrLogosMarkers.push(marker)
+         }
+		var markerLayerLogos = L.layerGroup(arrLogosMarkers).addTo(map);	
 				
 		
 		// Hide markers if the user zooms out
@@ -286,3 +316,38 @@
 				map.addLayer(markerLayerNonWesteros);
 			}
 		}					
+				
+		var selector = L.control({
+		  position: 'topleft'
+		});
+		selector.onAdd = function(map) {
+		  var div = L.DomUtil.create('div', 'mySelector');
+		  div.innerHTML = '<select id="marker_select" class="form-control"><option value="init">(select item)</option></select>';
+		  return div;
+		};
+		selector.addTo(map);
+		
+		
+		markerLayerNonWesteros.eachLayer(function(layer) {
+			var optionElement = document.createElement("option");
+			console.log(layer)
+			optionElement.innerHTML = layer._popup._content;
+			optionElement.value = layer._leaflet_id;
+			L.DomUtil.get("marker_select").appendChild(optionElement);
+		});
+		
+		var marker_select = L.DomUtil.get("marker_select");
+		L.DomEvent.addListener(marker_select, 'click', function(e) {
+			L.DomEvent.stopPropagation(e);
+		});
+		L.DomEvent.addListener(marker_select, 'change', changeHandler);
+		
+		function changeHandler(e) {
+			if (e.target.value == "init") {
+				map.closePopup();
+			} else {
+				// TODO: CENTER MAP
+				// map.setView()
+				markerLayerNonWesteros.getLayer(e.target.value).openPopup();
+			}
+		}
