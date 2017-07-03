@@ -23,34 +23,22 @@
 	background-position:0px -35px;
 }
 
-#map{
-	position:absolute;
-	top:75px;
-	bottom:0px;
-	left:0px;
-	width:673px;
-    height:1549px;
-}
-
-
 #toolbar{
 	position:absolute;
 	top:75px;
 	bottom:0px;
-	left:673px;
+	left:0px;
 	width:150px;
 	background-color:#666;
 	padding:10px;
 }
 
-#extras{
-    position:absolute;
-    top:75px;
-    bottom:0px;
-    left:823px;
-    right:0px;
-    background-color:#ccc;
-    padding:10px;
+#map{
+	position:absolute;
+	top:75px;
+	bottom:0px;
+	left:150px;
+	right:0px;
 }
 
 .btn{
