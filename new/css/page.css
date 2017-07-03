@@ -23,24 +23,26 @@
 	background-position:0px -35px;
 }
 
-#toolbar{
+#map{
 	position:absolute;
 	top:75px;
 	bottom:0px;
 	left:0px;
+	width:673px;
+    height:1549px;
+}
+
+
+#toolbar{
+	position:absolute;
+	top:75px;
+	bottom:0px;
+	left:673px;
 	width:150px;
 	background-color:#666;
 	padding:10px;
 }
 
-#map{
-	position:absolute;
-	top:75px;
-	bottom:0px;
-	left:150px;
-	width:673px;
-    height:1549px;
-}
 
 #extras{
    position: absolute;
