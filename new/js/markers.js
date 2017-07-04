@@ -1,7 +1,7 @@
   /********************************************/
  /**				MARKERS					**/
 /********************************************/
-
+/*
 // Define marker icons
 // For each region add an image to 'img/marker/' 
 var SL = L.icon({iconUrl: 'img/marker/SL.png',iconSize: [32, 74]})
@@ -445,3 +445,4 @@ var markers_NonWesteros = [
 [-79.68718415450823,132.099609375,SothoryosRuin,"Gorosh"]]
 
 var markers_Logos = []
+*/
