@@ -1,7 +1,7 @@
         var map = L.map('map').setView([50.85, -8.04], 2);
         L.tileLayer('img/map/{z}/{y}-{x}.jpeg', {
             minZoom: 3,
-            maxZoom: 3,
+            maxZoom: 4,
             attribution: 'ITP Map by /u/pauix',
             tms: false,
 			noWrap: true,
