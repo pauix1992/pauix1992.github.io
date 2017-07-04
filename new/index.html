@@ -6,8 +6,11 @@
   <link rel="stylesheet" href="css/page.css">
   <script src="js/jquery.js"></script>
   <script src="js/bootstrap.js"></script>
-
-</head>
+  <script src="js/leaflet.js"></script>
+  <script src="js/markers.js"></script>
+  <script>
+  </script>
+  </head>
 <body>
   <div id="header">
     <div id="link" onClick='window.location.href="https://reddit.com/r/ironthronepowers"'></div>
@@ -27,5 +30,99 @@
   </div>
   <div id="extras">Descriptions will go here (what the keep/village/resource is, who it will belong to, ...)</div>
 </body>
+  <script src="js/init_map.js"></script>  
+  <script>
+	var polylines = []
+	var circles = []
+	var col = ""
+	var currentLine;
+	var lin = $("#btn-line")
+	var pnt = $("#btn-point")
+	var clr = $("#btn-clear")
+	
+	function add_point(){
+		pnt.data("drawing","yes")
+		clr.prop('disabled',true)
+		lin.prop('disabled',true)
+		currentLine = L.polyline([], {color: col}).addTo(map);
+		polylines.push(currentLine);
+		map.on('click', addPoint);
+	}
+
+	
+	
+	function add_line(){
+		
+		
+		if(lin.data('drawing') == "no"){
+			
+			col = prompt("Enter Color")
+			lin.html("Stop drawing line")
+			lin.data("drawing","yes")
+			clr.prop('disabled',true)
+			pnt.prop('disabled',true)
+			currentLine = L.polyline([], {color: col}).addTo(map);
+			polylines.push(currentLine);
+			map.on('click', addToLine);
+			
+		}
+		else{
+			lin.html("Draw line")
+			lin.data("drawing","no")
+			clr.prop('disabled',false)
+			pnt.prop('disabled',false)
+			map.off('click',addToLine);	
+		}
+	}
+
+	function clear(){
+		if(confirm("Are you sure?"))
+			for(var i = 0; i < polylines.length; ++i){
+				map.removeLayer(polylines[i])
+			}	
+			for(var i = 0; i < circles.length; ++i){
+				map.removeLayer(circles[i])
+			}
+	}
+	
+	/*This function gives you Lat Long of what you click on */
+	function addToLine(e) {
+	
+		//if(confirm("ADD MARKER HERE=?")){
+		//	var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
+		//	var txt = prompt("Text")
+			m_icon = L.icon({iconUrl: 'img/marker/transparent.png',iconSize: [32, 74]})
+			mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon})//.bindPopup(txt);
+			var circle = L.circle([e.latlng.lat, e.latlng.lng],20, {color: col, fillColor:col,fillOpacity:1}).addTo(map)
+			circles.push(circle)
+			map.addLayer(mark)
+			currentLine.addLatLng(mark.getLatLng())	
+		//	$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+","+mrk+",\""+txt+"\"],\n")
+
+	//	}
+
+	};
+	
+	
+	/*This function gives you Lat Long of what you click on */
+	function addPoint(e) {
+	
+		//if(confirm("ADD MARKER HERE=?")){
+		//	var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
+		//	var txt = prompt("Text")
+			col2 = prompt("Dot color")
+			m_icon = L.icon({iconUrl: 'img/marker/transparent.png',iconSize: [32, 74]})
+			mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon})//.bindPopup(txt);
+			var circle = L.circle([e.latlng.lat, e.latlng.lng],(parseFloat(prompt("Dot radius"))*10000), {color: col2, fillColor:col2,fillOpacity:0.75}).addTo(map)
+			circles.push(circle)
+		//	$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+","+mrk+",\""+txt+"\"],\n")
+
+	//	}
+			lin.html("Draw line")
+			pnt.data("drawing","no")
+			clr.prop('disabled',false)
+			lin.prop('disabled',false)
+			map.off('click',addPoint);	
+	};	
+  </script>
 </html>
-
