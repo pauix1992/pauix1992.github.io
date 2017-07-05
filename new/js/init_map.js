@@ -5,6 +5,7 @@
             attribution: 'ITP Map by /u/pauix',
             tms: false,
 			noWrap: true,
+        //    maxBounds:new L.LatLngBounds(new L.LatLng(49.5, -11.3), new L.LatLng(61.2, 2.5));
 			maxBoundsViscosity: 1.0
         }).addTo(map);
 		  
@@ -24,7 +25,7 @@
 
 		};
 		map.on('click', onMapClick);
-		
+		/*
 
 		
 		//Loop through the SL markers (declared on marker.js) array and add markers to layer
@@ -351,3 +352,4 @@
 				markerLayerNonWesteros.getLayer(e.target.value).openPopup();
 			}
 		}
+        */
