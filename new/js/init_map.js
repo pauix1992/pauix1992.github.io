@@ -5,7 +5,7 @@
             attribution: 'ITP Map by /u/pauix',
             tms: false,  
 			noWrap: true,
-        //    maxBounds:new L.LatLngBounds(new L.LatLng(49.5, -11.3), new L.LatLng(61.2, 2.5));
+            maxBounds:new L.LatLngBounds(new L.LatLng(86, -180), new L.LatLng(-86, 0));
 			maxBoundsViscosity: 1.0
         }).addTo(map);
 		  
