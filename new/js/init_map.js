@@ -1,4 +1,4 @@
-        var map = L.map('map').setView([0, 0], 2);
+        var map = L.map('map').setView([0, 0], 1);
         L.tileLayer('img/map/{z}/{y}-{x}.jpeg', {
             minZoom: 1,
             maxZoom: 4,
