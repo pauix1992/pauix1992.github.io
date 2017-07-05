@@ -3,7 +3,7 @@
             minZoom: 1,
             maxZoom: 4,
             attribution: 'ITP Map by /u/pauix',
-            tms: false,
+            tms: false,  
 			noWrap: true,
         //    maxBounds:new L.LatLngBounds(new L.LatLng(49.5, -11.3), new L.LatLng(61.2, 2.5));
 			maxBoundsViscosity: 1.0
