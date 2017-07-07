@@ -39,5 +39,6 @@
             
              var marker = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText);
 			arrKeeps.push(marker)
+            alert(i);
          }
 		var keepLayer = L.layerGroup(arrKeeps).addTo(map);
