@@ -13,7 +13,7 @@
 		
 		function onMapClick(e) {
 			if(confirm("ADD MARKER HERE=?")){
-				var mrk = prompt("Marker (SL,CL,Dorne,II,North,NotWesteros,RL,TrueNorth,Vale,Wall,West):")
+				var mrk = "keep_4";
 				var txt = prompt("Text")
 				m_icon = L.icon({iconUrl: 'img/marker/'+mrk+'.png',iconSize: [32, 74]})
 				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon}).bindPopup(txt);
