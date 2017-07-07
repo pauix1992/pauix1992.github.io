@@ -12,7 +12,7 @@
 		/*This function gives you Lat Long of what you click on */
 		
 		function onMapClick(e) {
-			if(confirm("ADD MARKER HERE=?")){
+			if(confirm("ADD MARKER HERE?")){
 				var mrk = "keep_4";
 				var txt = prompt("Text")
 				m_icon = L.icon({iconUrl: 'img/marker/'+mrk+'.png',iconSize: [12, 18]})
