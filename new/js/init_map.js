@@ -37,7 +37,7 @@
          for (var i=0; i<keeps.length; i++) {
            
             var lat = keeps[i][0];
-            var lon = keeps[i][1];
+            var lon = keeps[i][1]; 
             var popupText = keeps[i][2];
             
              var marker_4 = new L.Marker([lat, lon], {icon: Keep_4}).bindPopup(popupText);
