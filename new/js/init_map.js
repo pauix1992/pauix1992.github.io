@@ -50,6 +50,22 @@
 
         
         map.on('zoomend',function(e,m){
-            console.log(e)
-            console.log(m)
+            map.removeLayer(keepLayer_3);
+            map.removeLayer(keepLayer_4);
+            switch(e.target._zoom){
+                case 1:
+                break;
+                
+                case 2:
+                break;
+                
+                case 3:
+                    map.addLayer(keepLayer_3);
+                break;
+                
+                case 4:
+                    map.addLayer(keepLayer_4);
+                break;
+                
+            }
         })
