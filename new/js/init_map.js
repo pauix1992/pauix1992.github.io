@@ -16,13 +16,11 @@
 		
 		function onMapClick(e) {
 			if(confirm("ADD MARKER HERE?")){
-				var mrk = "keep_4";
 				var txt = prompt("Text")
-				m_icon = L.icon({iconUrl: 'img/marker/'+mrk+'.png',iconSize: [12, 18]})
 				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon}).bindPopup(txt);
 				map.addLayer(mark)
 	
-				$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+","+mrk+",\""+txt+"\"],\n")
+				$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+",\""+txt+"\"],\n")
 	
 			}
 
