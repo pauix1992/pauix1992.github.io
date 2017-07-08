@@ -40,8 +40,8 @@
             var lon = keeps[i][1];
             var popupText = keeps[i][2];
             
-             var marker_4 = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText);
-             var marker_3 = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText);
+             var marker_4 = new L.Marker([lat, lon], {icon: Keep_4}).bindPopup(popupText);
+             var marker_3 = new L.Marker([lat, lon], {icon: Keep_3}).bindPopup(popupText);
 			arrKeeps_4.push(marker_4)
             arrKeeps_3.push(marker_3)
          }
