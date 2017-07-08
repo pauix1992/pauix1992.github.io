@@ -3,11 +3,16 @@
             minZoom: 1,
             maxZoom: 4,
             attribution: 'ITP Map by /u/pauix',
+            zomSnap: 0.25,
             tms: false,  
 			noWrap: true,
             maxBounds:new L.LatLngBounds(new L.LatLng(86, -180), new L.LatLng(-86, 0)),
 			maxBoundsViscosity: 1.0
         }).addTo(map);
+        
+        map.on('zoomend',function(e,m){
+            alert(m.getZoom())
+        })
 		  
 		/*This function gives you Lat Long of what you click on */
 		
@@ -28,16 +33,19 @@
 		
 
 		
-		//Loop through the SL markers (declared on marker.js) array and add markers to layer
-		var arrKeeps = []
+		//Loop through the keep markers (declared on marker.js) array and add markers to layer
+		var arrKeeps_4 = []
+        var arrKeeps_3 = []
          for (var i=0; i<keeps.length; i++) {
            
             var lat = keeps[i][0];
             var lon = keeps[i][1];
-			var icn = keeps[i][2];
-            var popupText = keeps[i][3];
+            var popupText = keeps[i][2];
             
-             var marker = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText);
-			arrKeeps.push(marker)
+             var marker_4 = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText);
+             var marker_3 = new L.Marker([lat, lon], {icon: icn}).bindPopup(popupText);
+			arrKeeps_4.push(marker_4)
+            arrKeeps_3.push(marker_3)
          }
-		var keepLayer = L.layerGroup(arrKeeps).addTo(map);
+		var keepLayer_4 = L.layerGroup(arrKeeps_4);
+        var keepLayer_3 = L.layerGroup(arrKeeps_3);
