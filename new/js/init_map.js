@@ -50,8 +50,8 @@
 
         
         map.on('zoomend',function(e,m){
-            map.removeLayer(keepLayer_3);
-            map.removeLayer(keepLayer_4);
+            e.target.removeLayer(keepLayer_3);
+            e.target.removeLayer(keepLayer_4);
             switch(e.target._zoom){
                 case 1:
                 break;
@@ -60,11 +60,11 @@
                 break;
                 
                 case 3:
-                    map.addLayer(keepLayer_3);
+                    e.target.addLayer(keepLayer_3);
                 break;
                 
                 case 4:
-                    map.addLayer(keepLayer_4);
+                    e.target.addLayer(keepLayer_4);
                 break;
                 
             }
