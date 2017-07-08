@@ -50,5 +50,6 @@
 
         
         map.on('zoomend',function(e,m){
-            alert(m.getZoom())
+            console.log(e)
+            console.log(m)
         })
