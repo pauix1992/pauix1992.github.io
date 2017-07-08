@@ -10,9 +10,7 @@
 			maxBoundsViscosity: 1.0
         }).addTo(map);
         
-        map.on('zoomend',function(e,m){
-            alert(m.getZoom())
-        })
+
 		  
 		/*This function gives you Lat Long of what you click on */
 		
@@ -49,3 +47,8 @@
          }
 		var keepLayer_4 = L.layerGroup(arrKeeps_4);
         var keepLayer_3 = L.layerGroup(arrKeeps_3);
+
+        
+        map.on('zoomend',function(e,m){
+            alert(m.getZoom())
+        })
