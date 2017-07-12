@@ -15,14 +15,14 @@
 		/*This function gives you Lat Long of what you click on */
 		
 		function onMapClick(e) {
-			if(confirm("ADD MARKER HERE?")){
-				var txt = prompt("Text")
-				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon}).bindPopup(txt);
+	//		if(confirm("ADD MARKER HERE?")){
+		//		var txt = prompt("Text")
+				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon}).bindPopup("txt");
 				map.addLayer(mark)
 	
-				$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+",\""+txt+"\"],\n")
+				$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng/*+",\""+txt*/+"\"],\n")
 	
-			}
+	//		}
 
 		};
 		map.on('click', onMapClick);
@@ -67,3 +67,22 @@
                 
             }
         })
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+   /*     
+        
+    var polygon = L.polygon([
+        [51.509, -0.08],
+        [51.503, -0.06],
+        [51.51, -0.047]
+    ]).addTo(map);
+    
+    */
