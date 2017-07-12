@@ -22,7 +22,7 @@
         //      $("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+",\""+txt+"\"],\n")
         
                 circle = L.circle([e.latlng.lat, e.latlng.lng],(1), {color: "#ffcc00", fillColor:"#ffcc00",fillOpacity:0.75}).addTo(map)
-				$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+"]",\n")
+				$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+"],\n")
 	
 	//		}
 
