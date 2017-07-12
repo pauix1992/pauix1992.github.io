@@ -17,7 +17,7 @@
 		function onMapClick(e) {
 	//		if(confirm("ADD MARKER HERE?")){
 		//		var txt = prompt("Text")
-				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: m_icon}).bindPopup("txt");
+				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: Keep_4}).bindPopup("txt");
 				map.addLayer(mark)
 	
 				$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng/*+",\""+txt*/+"\"],\n")
