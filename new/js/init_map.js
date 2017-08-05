@@ -47,7 +47,7 @@
             var lon = keeps[i][1]; 
             var popupText = keeps[i][2];
             
-             var marker_4 = new L.Marker([lat, lon], {icon: Keep_4}).on('click',function(e){alert(popupText));
+             var marker_4 = new L.Marker([lat, lon], {icon: Keep_4}).on('click',function(e){alert(popupText)});
              var marker_3 = new L.Marker([lat, lon], {icon: Keep_3}).bindPopup(popupText);
              var marker_2 = new L.Marker([lat, lon], {icon: Keep_2}).bindPopup(popupText);
              
