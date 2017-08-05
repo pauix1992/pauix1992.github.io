@@ -64,11 +64,11 @@
            
             var lat = villages[i][0];
             var lon = villages[i][1]; 
-            var popupText = keeps[i][2];
+            var popupText = villages[i][2];
             
-             var marker_4 = new L.Marker([lat, lon], {icon: Keep_4}).bindPopup(popupText);
-             var marker_3 = new L.Marker([lat, lon], {icon: Keep_3}).bindPopup(popupText);
-             var marker_2 = new L.Marker([lat, lon], {icon: Keep_2}).bindPopup(popupText);
+             var marker_4 = new L.Marker([lat, lon], {icon: Village_4}).bindPopup(popupText);
+             var marker_3 = new L.Marker([lat, lon], {icon: Village_3}).bindPopup(popupText);
+             var marker_2 = new L.Marker([lat, lon], {icon: Village_2}).bindPopup(popupText);
              
 			arrVillages_4.push(marker_4)
             arrVillages_3.push(marker_3)
