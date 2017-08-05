@@ -47,7 +47,7 @@
             var lon = keeps[i][1]; 
             var popupText = keeps[i][2];
             
-             var marker_4 = new L.Marker([lat, lon], {icon: Keep_4, title:popupText}).on('click',function(e){console.log(this);$("#extras").html("<iframe style='width:100%;height:100%' src='http://itp.wikia.com/"+this.title+"'></iframe>")});
+             var marker_4 = new L.Marker([lat, lon], {icon: Keep_4, title:popupText}).on('click',function(e){console.log(this);$("#extras").html("<iframe style='width:100%;height:100%' src='http://itp.wikia.com/"+this._icon.title+"'></iframe>")});
              var marker_3 = new L.Marker([lat, lon], {icon: Keep_3}).bindPopup(popupText);
              var marker_2 = new L.Marker([lat, lon], {icon: Keep_2}).bindPopup(popupText);
              
