@@ -34,6 +34,7 @@
 		//Loop through the keep markers (declared on marker.js) array and add markers to layer
 		var arrKeeps_4 = []
         var arrKeeps_3 = []
+        var arrKeeps_2 = []
          for (var i=0; i<keeps.length; i++) {
            
             var lat = keeps[i][0];
@@ -42,14 +43,19 @@
             
              var marker_4 = new L.Marker([lat, lon], {icon: Keep_4}).bindPopup(popupText);
              var marker_3 = new L.Marker([lat, lon], {icon: Keep_3}).bindPopup(popupText);
+             var marker_2 = new L.Marker([lat, lon], {icon: Keep_2}).bindPopup(popupText);
+             
 			arrKeeps_4.push(marker_4)
             arrKeeps_3.push(marker_3)
+            arrKeeps_2.push(marker_2)
          }
 		var keepLayer_4 = L.layerGroup(arrKeeps_4);
         var keepLayer_3 = L.layerGroup(arrKeeps_3);
+        var keepLayer_2 = L.layerGroup(arrKeeps_2);
 
         
         map.on('zoomend',function(e,m){
+            e.target.removeLayer(keepLayer_2);
             e.target.removeLayer(keepLayer_3);
             e.target.removeLayer(keepLayer_4);
             switch(e.target._zoom){
@@ -57,6 +63,7 @@
                 break;
                 
                 case 2:
+                    e.target.addLayer(keepLayer_2);
                 break;
                 
                 case 3:
