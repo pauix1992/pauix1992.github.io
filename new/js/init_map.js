@@ -16,13 +16,13 @@
 		
 		function onMapClick(e) {
 	//		if(confirm("ADD MARKER HERE?")){
-		//		var txt = prompt("Text")
-		//		mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: Keep_4}).bindPopup("txt");
-		//		map.addLayer(mark)
-        //      $("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+",\""+txt+"\"],\n")
+				var name = prompt("Name")
+				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: Keep_4}).bindPopup("txt");
+				map.addLayer(mark)
+              $("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+",\""+name+"\"],\n")
         
-                circle = L.circle([e.latlng.lat, e.latlng.lng],(1), {color: "#ffcc00", fillColor:"#ffcc00",fillOpacity:0.75}).addTo(map)
-				$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+"],\n")
+         //       circle = L.circle([e.latlng.lat, e.latlng.lng],(1), {color: "#ffcc00", fillColor:"#ffcc00",fillOpacity:0.75}).addTo(map)
+		//		$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+"],\n")
 	
 	//		}
 
@@ -35,7 +35,13 @@
 		var arrKeeps_4 = []
         var arrKeeps_3 = []
         var arrKeeps_2 = []
-         for (var i=0; i<keeps.length; i++) {
+        
+		//Loop through the village markers (declared on marker.js) array and add markers to layer
+		var arrVillages_4 = []
+        var arrVillages_3 = []
+        var arrVillages_2 = []        
+        
+        for (var i=0; i<keeps.length; i++) {
            
             var lat = keeps[i][0];
             var lon = keeps[i][1]; 
@@ -48,30 +54,59 @@
 			arrKeeps_4.push(marker_4)
             arrKeeps_3.push(marker_3)
             arrKeeps_2.push(marker_2)
-         }
+        }
 		var keepLayer_4 = L.layerGroup(arrKeeps_4);
         var keepLayer_3 = L.layerGroup(arrKeeps_3);
         var keepLayer_2 = L.layerGroup(arrKeeps_2);
 
         
+       for (var i=0; i<villages.length; i++) {
+           
+            var lat = villages[i][0];
+            var lon = villages[i][1]; 
+            var popupText = keeps[i][2];
+            
+             var marker_4 = new L.Marker([lat, lon], {icon: Keep_4}).bindPopup(popupText);
+             var marker_3 = new L.Marker([lat, lon], {icon: Keep_3}).bindPopup(popupText);
+             var marker_2 = new L.Marker([lat, lon], {icon: Keep_2}).bindPopup(popupText);
+             
+			arrVillages_4.push(marker_4)
+            arrVillages_3.push(marker_3)
+            arrVillages_2.push(marker_2)
+        }
+		var villageLayer_4 = L.layerGroup(arrVillages_4);
+        var villageLayer_3 = L.layerGroup(arrVillages_3);
+        var villageLayer_2 = L.layerGroup(arrVillages_2);
+        
+        
+        
+        
         map.on('zoomend',function(e,m){
             e.target.removeLayer(keepLayer_2);
             e.target.removeLayer(keepLayer_3);
             e.target.removeLayer(keepLayer_4);
+            
+            e.target.removeLayer(villageLayer_2);
+            e.target.removeLayer(villageLayer_3);
+            e.target.removeLayer(villageLayer_4);
+
             switch(e.target._zoom){
                 case 1:
                 break;
                 
                 case 2:
                     e.target.addLayer(keepLayer_2);
+                    e.target.addLayer(villageLayer_2);
                 break;
                 
                 case 3:
                     e.target.addLayer(keepLayer_3);
+                    e.target.addLayer(villageLayer_3);
                 break;
                 
                 case 4:
                     e.target.addLayer(keepLayer_4);
+                    e.target.addLayer(villageLayer_4);
                 break;
                 
             }
