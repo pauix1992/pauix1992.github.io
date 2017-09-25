@@ -13,6 +13,11 @@ var Village_4 = L.icon({iconUrl: 'img/marker/village.png',iconSize: [12, 18]})
 var Village_3 = L.icon({iconUrl: 'img/marker/village.png',iconSize: [6, 9]})
 var Village_2 = L.icon({iconUrl: 'img/marker/village.png',iconSize: [3, 5]})
 
+// Define marker icons
+var Resource_4 = L.icon({iconUrl: 'img/marker/resource.png',iconSize: [12, 18]})
+var Resource_3 = L.icon({iconUrl: 'img/marker/resource.png',iconSize: [6, 9]})
+var Resource_2 = L.icon({iconUrl: 'img/marker/resource.png',iconSize: [3, 5]})
+
 
 var keeps = [
 [-83.7825325736073,-115.31249999999999,"Starfall"],
@@ -36,4 +41,9 @@ var keeps = [
 
 
 var villages = [
+[-82.35580019800932,-58.447265625,"Village1"],
+]
+
+var resources = [
+[-82.43720532313122,-46.845703125,"Resource 1"],
 ]

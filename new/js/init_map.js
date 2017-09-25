@@ -40,6 +40,12 @@
 		var arrVillages_4 = []
         var arrVillages_3 = []
         var arrVillages_2 = []        
+
+		//Loop through the resource markers (declared on marker.js) array and add markers to layer
+		var arrResources_4 = []
+        var arrResources_3 = []
+        var arrResources_2 = []        
+
         
         for (var i=0; i<keeps.length; i++) {
            
@@ -80,6 +86,26 @@
         
         
         
+       for (var i=0; i<resources.length; i++) {
+           
+            var lat = resources[i][0];
+            var lon = resources[i][1]; 
+            var popupText = resources[i][2];
+            
+             var marker_4 = new L.Marker([lat, lon], {icon: Resource_4}).bindPopup(popupText);
+             var marker_3 = new L.Marker([lat, lon], {icon: Resource_3}).bindPopup(popupText);
+             var marker_2 = new L.Marker([lat, lon], {icon: Resource_2}).bindPopup(popupText);
+             
+			arrResources_4.push(marker_4)
+            arrResources_3.push(marker_3)
+            arrResources_2.push(marker_2)
+        }
+		var resourceLayer_4 = L.layerGroup(arrResources_4);
+        var resourceLayer_3 = L.layerGroup(arrResources_3);
+        var resourceLayer_2 = L.layerGroup(arrResources_2);
+        
+        
+        
         
         map.on('zoomend',function(e,m){
             e.target.removeLayer(keepLayer_2);
@@ -89,6 +115,10 @@
             e.target.removeLayer(villageLayer_2);
             e.target.removeLayer(villageLayer_3);
             e.target.removeLayer(villageLayer_4);
+            
+            e.target.removeLayer(resourceLayer_2);
+            e.target.removeLayer(resourceLayer_3);
+            e.target.removeLayer(resourceLayer_4);            
 
             switch(e.target._zoom){
                 case 1:
@@ -97,17 +127,20 @@
                 case 2:
                     e.target.addLayer(keepLayer_2);
                     e.target.addLayer(villageLayer_2);
+                    e.target.addLayer(resourceLayer_2);
                 break;
                 
                 case 3:
                     e.target.addLayer(keepLayer_3);
                     e.target.addLayer(villageLayer_3);
+                    e.target.addLayer(resourceLayer_4);
                 break;
                 
                 case 4:
                     e.target.addLayer(keepLayer_4);
                     e.target.addLayer(villageLayer_4);
-                break;
+                      e.target.addLayer(resourceLayer_4);
+              break;
                 
             }
         })
