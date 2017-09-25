@@ -106,7 +106,7 @@
         
         
         
-        
+        var currentzoom = 1;
         map.on('zoomend',function(e,m){
             e.target.removeLayer(keepLayer_2);
             e.target.removeLayer(keepLayer_3);
@@ -125,22 +125,43 @@
                 break;
                 
                 case 2:
-                    e.target.addLayer(keepLayer_2);
-                    e.target.addLayer(villageLayer_2);
-                    e.target.addLayer(resourceLayer_2);
+                    if(showKeeps) e.target.addLayer(keepLayer_2);
+                    if(showVillages) e.target.addLayer(villageLayer_2);
+                    if(showResources) e.target.addLayer(resourceLayer_2);
                 break;
                 
                 case 3:
-                    e.target.addLayer(keepLayer_3);
-                    e.target.addLayer(villageLayer_3);
-                    e.target.addLayer(resourceLayer_4);
+                    if(showKeeps) e.target.addLayer(keepLayer_3);
+                    if(showVillages) e.target.addLayer(villageLayer_3);
+                    if(showResources) e.target.addLayer(resourceLayer_4);
                 break;
                 
                 case 4:
-                    e.target.addLayer(keepLayer_4);
-                    e.target.addLayer(villageLayer_4);
-                      e.target.addLayer(resourceLayer_4);
+                    if(showKeeps) e.target.addLayer(keepLayer_4);
+                    if(showVillages) e.target.addLayer(villageLayer_4);
+                    if(showResources) e.target.addLayer(resourceLayer_4);
               break;
-                
             }
+            currentzoom = e.target._zoom;
+            
         })
+        
+ function toggle(type){
+      switch(type){
+          case "keep":
+            showKeeps = !showKeeps;
+         break;
+
+         case "village":
+            showVillages = !showVillages;
+         break;
+
+        case "resource":
+            showResources = !showResources;
+         break;
+      }
+      layer = eval(type+"Layer_"+currentzoom);
+
+    if (map.hasLayer(layer))     map.removeLayer(layer);
+    else   map.addLayer(layer);
+}
