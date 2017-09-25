@@ -106,7 +106,6 @@
         
         
         
-        var currentzoom = 1;
         map.on('zoomend',function(e,m){
             e.target.removeLayer(keepLayer_2);
             e.target.removeLayer(keepLayer_3);
@@ -146,6 +145,7 @@
             
         })
         
+var currentzoom = 1;
  function toggle(type){
       switch(type){
           case "keep":
@@ -162,6 +162,6 @@
       }
       layer = eval(type+"Layer_"+currentzoom);
 
-    if (map.hasLayer(layer))     map.removeLayer(layer);
+    if (map.hasLayer(layer) && currentzoom>1)     map.removeLayer(layer);
     else   map.addLayer(layer);
 }
