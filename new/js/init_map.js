@@ -133,7 +133,7 @@
                 case 3:
                     if(showKeeps) e.target.addLayer(keepLayer_3);
                     if(showVillages) e.target.addLayer(villageLayer_3);
-                    if(showResources) e.target.addLayer(resourceLayer_4);
+                    if(showResources) e.target.addLayer(resourceLayer_3);
                 break;
                 
                 case 4:
