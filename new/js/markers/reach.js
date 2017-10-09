@@ -43,4 +43,4 @@ var villages = [
 
 var resources = [
 
-]*/
+]
