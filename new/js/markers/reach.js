@@ -32,15 +32,15 @@ var ReachSeaResource_3 = L.icon({iconUrl: 'img/marker/Reach/searesource.png',ico
 var ReachSeaResource_2 = L.icon({iconUrl: 'img/marker/Reach/searesource.png',iconSize: [3, 3]})
 
 
-var keeps = [
+var reachKeeps = [
 
 ]
 
 
-var villages = [
+var reachVillages = [
 
 ]
 
-var resources = [
+var reachResources = [
 
 ]
