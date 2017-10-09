@@ -32,14 +32,15 @@
         
         
         
-        var keeps = []
-        keeps.concat(reachKeeps);
+        var keeps = [];
+        $.merge(keeps,reachKeeps);
+       //keeps.concat(reachKeeps);
         
         var villages = []
-        villages.concat(reachVillages);
+        $.merge(villages,reachVillages);
         
         var resources = []
-        resources.concat(reachResources);
+        $.merge(resources,reachResources);
 		
 
 		
@@ -58,7 +59,6 @@
         var arrResources_3 = []
         var arrResources_2 = []        
 
-        
         for (var i=0; i<keeps.length; i++) {
            
             var lat = keeps[i][0];
