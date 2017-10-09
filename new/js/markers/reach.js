@@ -56,7 +56,7 @@ var reachVillages = [
 ]
 
 var reachResources = [
-    [-83.59903070836198,-144.9190852046013,"R",ReachPort_4,ReachLandResource_3,ReachLandResource_2],
+    [-83.59903070836198,-144.9190852046013,"R",ReachLandResource_4,ReachLandResource_3,ReachLandResource_2],
 ]
 
 
