@@ -44,3 +44,5 @@ var reachVillages = [
 var reachResources = [
 
 ]
+
+alert("REACH LOADED!");
