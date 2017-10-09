@@ -31,6 +31,10 @@ var ReachSeaResource_4 = L.icon({iconUrl: 'img/marker/Reach/seaesource.png',icon
 var ReachSeaResource_3 = L.icon({iconUrl: 'img/marker/Reach/searesource.png',iconSize: [6, 6]})
 var ReachSeaResource_2 = L.icon({iconUrl: 'img/marker/Reach/searesource.png',iconSize: [3, 3]})
 
+var ReachPort_4 = L.icon({iconUrl: 'img/marker/Reach/seaesource.png',iconSize: [12, 12]})
+var ReachPort_3 = L.icon({iconUrl: 'img/marker/Reach/searesource.png',iconSize: [6, 6]})
+var ReachPort_2 = L.icon({iconUrl: 'img/marker/Reach/searesource.png',iconSize: [3, 3]})
+
 
 var reachKeeps = [
 
