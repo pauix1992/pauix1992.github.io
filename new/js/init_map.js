@@ -18,7 +18,7 @@
 	//		if(confirm("ADD MARKER HERE?")){
 				var name = prompt("Name")
                 var type = prompt("Type")
-				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: Keep_4}).bindPopup("txt");
+				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: eval(type+"_"+4)}).bindPopup("txt");
 				map.addLayer(mark)
               $("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+",\""+name+"\",\""+type+"_4\",\""+type+"_3\",\""+type+"_2\"],\n")
         
