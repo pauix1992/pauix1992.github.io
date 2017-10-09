@@ -1,7 +1,7 @@
   /********************************************/
  /**				MARKERS					**/
 /********************************************/
-
+/*
 // Define marker icons
 var Keep_4 = L.icon({iconUrl: 'img/marker/keep.png',iconSize: [12, 18]})
 var Keep_3 = L.icon({iconUrl: 'img/marker/keep.png',iconSize: [6, 9]})
@@ -46,4 +46,4 @@ var resources = [
 [-81.50529869762794,-53.876953125,"Jordayne"],
 [-81.12038840207569,-73.47656249999999,"Yronwood"],
 [-78.56048828398782,-68.818359375,"Wyl"],
-]
+]*/

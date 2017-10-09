@@ -17,9 +17,10 @@
 		function onMapClick(e) {
 	//		if(confirm("ADD MARKER HERE?")){
 				var name = prompt("Name")
+                var type = prompt("Type")
 				mark = new L.Marker([e.latlng.lat, e.latlng.lng], {icon: Keep_4}).bindPopup("txt");
 				map.addLayer(mark)
-              $("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+",\""+name+"\"],\n")
+              $("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+",\""+name+"\",\""+type+"_4\",\""+type+"_3\",\""+type+"_2\"],\n")
         
          //       circle = L.circle([e.latlng.lat, e.latlng.lng],(1), {color: "#ffcc00", fillColor:"#ffcc00",fillOpacity:0.75}).addTo(map)
 		//		$("#text").val($("#text").val()+"["+e.latlng.lat+","+e.latlng.lng+"],\n")
@@ -28,6 +29,17 @@
 
 		};
 		map.on('click', onMapClick);
+        
+        
+        
+        var keeps = []
+        keeps.concat(reachKeeps);
+        
+        var villages = []
+        villages.concat(reachVillages);
+        
+        var resources = []
+        resources.concat(reachResources);
 		
 
 		
@@ -53,9 +65,9 @@
             var lon = keeps[i][1]; 
             var popupText = keeps[i][2];
             
-             var marker_4 = new L.Marker([lat, lon], {icon: Keep_4, title:popupText}).on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
-             var marker_3 = new L.Marker([lat, lon], {icon: Keep_3, title:popupText}).on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
-             var marker_2 = new L.Marker([lat, lon], {icon: Keep_2, title:popupText}).on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+             var marker_4 = new L.Marker([lat, lon], {icon: keeps[i][3], title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+             var marker_3 = new L.Marker([lat, lon], {icon: keeps[i][4], title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
+             var marker_2 = new L.Marker([lat, lon], {icon: keeps[i][5], title:popupText});//.on('click',function(e){$("#extras").html("<iframe style='width:100%;height:100%' src='https://itp.wikia.com/"+this._icon.title+"'></iframe>")});
              
 			arrKeeps_4.push(marker_4)
             arrKeeps_3.push(marker_3)
@@ -72,9 +84,9 @@
             var lon = villages[i][1]; 
             var popupText = villages[i][2];
             
-             var marker_4 = new L.Marker([lat, lon], {icon: Village_4}).bindPopup(popupText);
-             var marker_3 = new L.Marker([lat, lon], {icon: Village_3}).bindPopup(popupText);
-             var marker_2 = new L.Marker([lat, lon], {icon: Village_2}).bindPopup(popupText);
+             var marker_4 = new L.Marker([lat, lon], {icon: villages[i][3]}).bindPopup(popupText);
+             var marker_3 = new L.Marker([lat, lon], {icon: villages[i][4]}).bindPopup(popupText);
+             var marker_2 = new L.Marker([lat, lon], {icon: villages[i][5]}).bindPopup(popupText);
              
 			arrVillages_4.push(marker_4)
             arrVillages_3.push(marker_3)
@@ -92,9 +104,9 @@
             var lon = resources[i][1]; 
             var popupText = resources[i][2];
             
-             var marker_4 = new L.Marker([lat, lon], {icon: Resource_4}).bindPopup(popupText);
-             var marker_3 = new L.Marker([lat, lon], {icon: Resource_3}).bindPopup(popupText);
-             var marker_2 = new L.Marker([lat, lon], {icon: Resource_2}).bindPopup(popupText);
+             var marker_4 = new L.Marker([lat, lon], {icon: resources[i][3]}).bindPopup(popupText);
+             var marker_3 = new L.Marker([lat, lon], {icon: resources[i][4]}).bindPopup(popupText);
+             var marker_2 = new L.Marker([lat, lon], {icon: resources[i][5]}).bindPopup(popupText);
              
 			arrResources_4.push(marker_4)
             arrResources_3.push(marker_3)
